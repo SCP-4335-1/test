@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory android:title="# grid">
+        <EditTextPreference
+            android:key="pref_grid_columns"
+            android:title="@string/settings_grid_size"
+            android:defaultValue="5"
+            android:summary="Spalten (Standard: 5)" />
+        <EditTextPreference
+            android:key="pref_grid_rows"
+            android:title=" "
+            android:defaultValue="6"
+            android:summary="Zeilen (Standard: 6)" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="# drawer">
+        <ListPreference
+            android:key="pref_drawer_default_mode"
+            android:title="@string/settings_drawer_style"
+            android:entries="@array/drawer_mode_entries"
+            android:entryValues="@array/drawer_mode_values"
+            android:defaultValue="grid" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="# fx">
+        <SwitchPreferenceCompat
+            android:key="pref_glitch_fx"
+            android:title="@string/settings_glitch_fx"
+            android:defaultValue="true" />
+        <SwitchPreferenceCompat
+            android:key="pref_scanlines"
+            android:title="@string/settings_scanlines"
+            android:defaultValue="true" />
+        <ListPreference
+            android:key="pref_accent_color"
+            android:title="@string/settings_accent_color"
+            android:entries="@array/accent_color_entries"
+            android:entryValues="@array/accent_color_values"
+            android:defaultValue="cyan" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="# backup">
+        <Preference
+            android:key="pref_backup_layout"
+            android:title="@string/settings_backup" />
+        <Preference
+            android:key="pref_restore_layout"
+            android:title="@string/settings_restore" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

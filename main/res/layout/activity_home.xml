@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootHome"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_void"
+    tools:context=".ui.home.HomeActivity">
+
+    <!-- Wallpaper sits behind everything; system wallpaper shows through
+         since the window background is transparent over it, but we also
+         allow a custom static wallpaper layer for the omarchy look -->
+    <ImageView
+        android:id="@+id/wallpaperView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:contentDescription="@null"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <!-- Subtle grid-line overlay for the hyprland/omarchy tiling feel -->
+    <com.omarchy.launcher.ui.home.GridOverlayView
+        android:id="@+id/gridOverlayView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0.5"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <!-- Status line, sits below the real system status bar (which we
+         deliberately leave visible; see Theme.OmrLauncher.Home).
+         fitsSystemWindows on the theme already pushes content below the
+         system bar, this margin is just a bit of extra breathing room. -->
+    <com.omarchy.launcher.ui.home.StatusLineView
+        android:id="@+id/statusLine"
+        style="@style/Text.Terminal.Dim"
+        android:layout_width="0dp"
+        android:layout_height="28dp"
+        android:background="@color/bg_panel"
+        android:gravity="center_vertical"
+        android:paddingStart="16dp"
+        android:paddingTop="6dp"
+        android:text="@string/boot_status_line"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Pages of homescreen icons/widgets -->
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/homePager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/statusLine"
+        app:layout_constraintBottom_toTopOf="@id/dockContainer" />
+
+    <!-- Page indicator dots, terminal-style [*··] -->
+    <TextView
+        android:id="@+id/pageIndicator"
+        style="@style/Text.Terminal.Dim"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@id/dockContainer"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Visible, tappable handle to open the app drawer (this is the
+         primary affordance; swipe-up still works too, but a brand-new
+         user has no way to discover a hidden gesture on their own). -->
+    <LinearLayout
+        android:id="@+id/drawerPullTab"
+        android:layout_width="64dp"
+        android:layout_height="22dp"
+        android:layout_marginBottom="2dp"
+        android:background="@drawable/bg_pull_tab"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@id/dockContainer"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <View
+            android:layout_width="28dp"
+            android:layout_height="3dp"
+            android:background="@drawable/drag_handle" />
+    </LinearLayout>
+
+    <!-- Dock: fixed favorite apps row, like Nova's dock. Bottom padding
+         is set in code (HomeActivity) from the nav-bar inset, since the
+         terminal variant hides the status bar via setDecorFitsSystemWindows(false)
+         which also stops automatic nav-bar padding; without this, the
+         3-button nav bar (Galaxy A14 default) overlaps/hides the dock. -->
+    <LinearLayout
+        android:id="@+id/dockContainer"
+        android:layout_width="match_parent"
+        android:layout_height="76dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="@color/bg_panel"
+        android:elevation="2dp"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <com.omarchy.launcher.ui.home.DockView
+            android:id="@+id/dockView"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <!-- Always-visible app-drawer button, like Nova Launcher's dock
+             drawer icon; guarantees the drawer is discoverable even
+             if someone never finds the swipe-up gesture. -->
+        <FrameLayout
+            android:id="@+id/drawerOpenButton"
+            android:layout_width="64dp"
+            android:layout_height="match_parent"
+            android:background="?android:attr/selectableItemBackground">
+
+            <ImageView
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_grid_mode"
+                android:contentDescription="@string/drawer_open_button_desc"
+                app:tint="@color/neon_cyan" />
+        </FrameLayout>
+
+    </LinearLayout>
+
+    <!-- App drawer: slides up over everything, starts hidden below screen.
+         Bottom is pinned to the TOP of the dock (not the screen edge) so
+         the drawer's content never renders underneath/behind the dock's
+         5 always-visible app icons. -->
+    <FrameLayout
+        android:id="@+id/drawerContainer"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@drawable/bg_drawer_panel"
+        android:visibility="invisible"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/dockContainer">
+
+        <com.omarchy.launcher.ui.drawer.AppDrawerView
+            android:id="@+id/appDrawerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </FrameLayout>
+
+    <!-- Omarchy-style command menu (wofi/walker-like): centered popup,
+         opened via double-tap on an empty homescreen area. Sits above
+         the drawer in z-order and starts hidden/invisible. -->
+    <FrameLayout
+        android:id="@+id/omarchyMenuOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/scrim"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <com.omarchy.launcher.ui.menu.OmarchyMenuView
+            android:id="@+id/omarchyMenuView"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="60dp" />
+    </FrameLayout>
+
+    <!-- Dedicated Walker-style app launcher, opened from the Omarchy
+         menu's "Apps" entry (mirrors omarchy-launch-walker opening its
+         own standalone fuzzy-search window instead of a plain submenu). -->
+    <FrameLayout
+        android:id="@+id/walkerLauncherOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/scrim"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <com.omarchy.launcher.ui.menu.WalkerAppLauncherView
+            android:id="@+id/walkerLauncherView"
+            android:layout_width="@dimen/walker_width"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="60dp" />
+    </FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

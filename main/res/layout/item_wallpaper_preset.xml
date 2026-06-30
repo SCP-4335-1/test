@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="70dp"
+    android:layout_height="match_parent"
+    android:layout_marginEnd="8dp"
+    android:orientation="vertical"
+    android:gravity="center">
+
+    <View
+        android:id="@+id/presetSwatch"
+        android:layout_width="56dp"
+        android:layout_height="100dp"
+        android:background="@drawable/bg_icon_frame_selector" />
+
+    <TextView
+        android:id="@+id/presetLabel"
+        style="@style/Text.Terminal.Dim"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:singleLine="true"
+        android:ellipsize="end"
+        android:textSize="9sp"
+        android:layout_marginTop="4dp" />
+</LinearLayout>

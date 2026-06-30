@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">omr_launcher</string>
+    <string name="settings_title">~/config/launcher.conf</string>
+
+    <string name="drawer_search_hint">grep -i app_name</string>
+    <string name="drawer_mode_terminal">--list</string>
+    <string name="drawer_mode_grid">--grid</string>
+    <string name="drawer_empty">no matches found in $PATH</string>
+    <string name="drawer_web_search_hint">no app match — tap to search the web for \"%1$s\"</string>
+    <string name="drawer_open_button_desc">App-Drawer öffnen</string>
+
+    <string name="omarchy_menu_title_main">omarchy-menu</string>
+    <string name="omarchy_menu_prompt">Go…</string>
+    <string name="omarchy_menu_back">.. (zurück)</string>
+    <string name="walker_launch_prompt">Launch…</string>
+    <string name="wallpaper_picker_title">choose_background --preset</string>
+    <string name="wallpaper_picker_system_option">Choose photo from gallery…</string>
+    <string name="widget_added_generic">Widget</string>
+    <string name="widget_added_fmt">%1$s added — long-press home to place it</string>
+    <string name="widget_preview_cancel">Cancel</string>
+    <string name="widget_preview_add">Add to home</string>
+
+    <string name="prompt_user">guest@omarchy</string>
+    <string name="prompt_separator">:~$</string>
+
+    <string name="widget_add">add_widget --select</string>
+    <string name="folder_rename_hint">rename_folder</string>
+
+    <string name="long_press_menu_widgets">Widgets</string>
+    <string name="long_press_menu_wallpaper">Wallpaper</string>
+    <string name="long_press_menu_settings">launcher.conf</string>
+    <string name="long_press_menu_remove">Remove from grid</string>
+
+    <string name="app_info">App-Info</string>
+    <string name="uninstall">Uninstall</string>
+    <string name="add_to_home">Pin to homescreen</string>
+
+    <string name="boot_status_line">[ OK ] omarchy-launcher.service started</string>
+
+    <string name="settings_grid_size">Grid-Größe (Spalten x Zeilen)</string>
+    <string name="settings_icon_pack">Icon-Pack</string>
+    <string name="settings_drawer_style">Drawer-Standardansicht</string>
+    <string name="settings_glitch_fx">Glitch-Effekte</string>
+    <string name="settings_scanlines">Scanline-Overlay</string>
+    <string name="settings_backup">Layout sichern</string>
+    <string name="settings_restore">Layout wiederherstellen</string>
+    <string name="settings_accent_color">Akzentfarbe</string>
+</resources>

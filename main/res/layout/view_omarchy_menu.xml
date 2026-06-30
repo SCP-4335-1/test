@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/bg_omarchy_menu"
+    android:elevation="8dp"
+    android:padding="2dp">
+
+    <!-- Title bar, e.g. "omarchy-menu > Style" -->
+    <TextView
+        android:id="@+id/omarchyMenuTitle"
+        style="@style/Text.Terminal.Prompt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="14dp"
+        android:paddingEnd="14dp"
+        android:paddingTop="12dp"
+        android:paddingBottom="4dp"
+        android:textSize="13sp"
+        android:singleLine="true"
+        android:ellipsize="end" />
+
+    <!-- Search input, like walker's dmenu prompt -->
+    <EditText
+        android:id="@+id/omarchyMenuSearch"
+        style="@style/Widget.SearchBar"
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="6dp"
+        android:hint="@string/omarchy_menu_prompt"
+        android:singleLine="true"
+        android:imeOptions="actionDone"
+        android:inputType="text"
+        android:background="@drawable/bg_search_bar" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/grid_line" />
+
+    <!-- ".." back row, only visible when not at the root screen -->
+    <LinearLayout
+        android:id="@+id/omarchyMenuBackRow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="12dp"
+        android:background="?android:attr/selectableItemBackground"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/omarchyMenuBackLabel"
+            style="@style/Text.Terminal.Dim"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/omarchyMenuRows"
+        android:layout_width="match_parent"
+        android:layout_height="420dp"
+        android:paddingBottom="6dp"
+        android:clipToPadding="false" />
+
+</LinearLayout>

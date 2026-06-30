@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/bg_omarchy_menu"
+    android:padding="14dp">
+
+    <TextView
+        style="@style/Text.Terminal.Prompt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/wallpaper_picker_title"
+        android:textSize="14sp"
+        android:layout_marginBottom="10dp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/wallpaperPresetGrid"
+        android:layout_width="match_parent"
+        android:layout_height="160dp" />
+
+    <TextView
+        android:id="@+id/wallpaperSystemPickerButton"
+        style="@style/Text.Terminal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:padding="12dp"
+        android:textSize="14sp"
+        android:gravity="center"
+        android:background="@drawable/bg_search_bar"
+        android:text="@string/wallpaper_picker_system_option" />
+
+</LinearLayout>

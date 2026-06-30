@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Base terminal background layers -->
+    <color name="bg_void">#0A0E14</color>
+    <color name="bg_panel">#10151C</color>
+    <color name="bg_panel_alt">#161C26</color>
+    <color name="bg_scanline">#0C1117</color>
+
+    <!-- Neon accents -->
+    <color name="neon_cyan">#00F5FF</color>
+    <color name="neon_cyan_dim">#0AA3AD</color>
+    <color name="neon_magenta">#FF2BD6</color>
+    <color name="neon_magenta_dim">#A6189C</color>
+    <color name="neon_green">#39FF6A</color>
+    <color name="neon_amber">#FFB627</color>
+    <color name="neon_red">#FF3864</color>
+
+    <!-- Text -->
+    <color name="text_primary">#E6F1F5</color>
+    <color name="text_secondary">#7FA3AD</color>
+    <color name="text_dim">#3D4F57</color>
+    <color name="text_terminal_prompt">#39FF6A</color>
+
+    <!-- Borders / grid -->
+    <color name="border_glow">#1A3A40</color>
+    <color name="border_glow_active">#00F5FF</color>
+    <color name="grid_line">#141A21</color>
+
+    <!-- Overlay / glitch -->
+    <color name="glitch_overlay">#1A00F5FF</color>
+    <color name="scrim">#B30A0E14</color>
+
+    <color name="transparent">#00000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+</resources>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="8dp">
+
+    <!-- Drag handle -->
+    <View
+        android:layout_width="40dp"
+        android:layout_height="4dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/drag_handle" />
+
+    <!-- Search row + mode toggle -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:gravity="center_vertical">
+
+        <TextView
+            style="@style/Text.Terminal.Prompt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/prompt_separator"
+            android:layout_marginEnd="6dp" />
+
+        <EditText
+            android:id="@+id/drawerSearchInput"
+            style="@style/Widget.SearchBar"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:hint="@string/drawer_search_hint"
+            android:singleLine="true"
+            android:imeOptions="actionSearch"
+            android:inputType="text"
+            android:background="@drawable/bg_search_bar" />
+
+        <ImageButton
+            android:id="@+id/drawerModeToggle"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/bg_icon_frame_selector"
+            android:contentDescription="@string/drawer_mode_grid"
+            android:src="@drawable/ic_grid_mode"
+            app:tint="@color/neon_cyan" />
+
+    </LinearLayout>
+
+    <!-- Terminal list mode -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/drawerListRecycler"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="8dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:clipToPadding="false"
+        android:visibility="visible" />
+
+    <!-- Neon grid mode -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/drawerGridRecycler"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="8dp"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:clipToPadding="false"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/drawerEmptyState"
+        style="@style/Text.Terminal.Dim"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="@string/drawer_empty"
+        android:visibility="gone" />
+
+</LinearLayout>

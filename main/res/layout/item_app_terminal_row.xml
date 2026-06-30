@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp"
+    android:background="?android:attr/selectableItemBackground">
+
+    <!-- fake permission string, like ls -la output: -rwxr-xr-x -->
+    <TextView
+        android:id="@+id/itemPermBits"
+        style="@style/Text.Terminal.Dim"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="-rwxr-xr-x"
+        android:layout_marginEnd="10dp" />
+
+    <ImageView
+        android:id="@+id/itemIcon"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:layout_marginEnd="10dp"
+        android:contentDescription="@null" />
+
+    <TextView
+        android:id="@+id/itemLabel"
+        style="@style/Text.Terminal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:textSize="14sp"
+        android:singleLine="true"
+        android:ellipsize="end" />
+
+    <TextView
+        android:id="@+id/itemSizeFake"
+        style="@style/Text.Terminal.Dim"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="10sp" />
+
+</LinearLayout>

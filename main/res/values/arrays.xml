@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="drawer_mode_entries">
+        <item>--grid (Neon-Grid)</item>
+        <item>--list (Terminal-Liste)</item>
+    </string-array>
+    <string-array name="drawer_mode_values">
+        <item>grid</item>
+        <item>list</item>
+    </string-array>
+
+    <string-array name="accent_color_entries">
+        <item>Cyan</item>
+        <item>Magenta</item>
+        <item>Green</item>
+        <item>Amber</item>
+    </string-array>
+    <string-array name="accent_color_values">
+        <item>cyan</item>
+        <item>magenta</item>
+        <item>green</item>
+        <item>amber</item>
+    </string-array>
+</resources>

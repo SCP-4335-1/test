@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="220dp"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/bg_context_menu"
+    android:padding="6dp">
+
+    <TextView
+        android:id="@+id/menuAppLabel"
+        style="@style/Text.Terminal.Prompt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="10dp"
+        android:paddingTop="6dp"
+        android:paddingBottom="6dp"
+        android:singleLine="true"
+        android:ellipsize="end" />
+
+    <TextView
+        android:id="@+id/menuPinHome"
+        style="@style/Text.Terminal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:background="?android:attr/selectableItemBackground"
+        android:text="@string/add_to_home" />
+
+    <TextView
+        android:id="@+id/menuAppInfo"
+        style="@style/Text.Terminal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:background="?android:attr/selectableItemBackground"
+        android:text="@string/app_info" />
+
+    <TextView
+        android:id="@+id/menuUninstall"
+        style="@style/Text.Terminal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:background="?android:attr/selectableItemBackground"
+        android:textColor="@color/neon_red"
+        android:text="@string/uninstall" />
+
+    <TextView
+        android:id="@+id/menuRemove"
+        style="@style/Text.Terminal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:background="?android:attr/selectableItemBackground"
+        android:text="@string/long_press_menu_remove"
+        android:visibility="gone" />
+
+</LinearLayout>

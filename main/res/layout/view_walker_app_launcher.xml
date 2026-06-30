@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Mirrors omarchy-launch-walker's invocation with width and height
+    flags whose values are pixel values in Hyprland's compositor space;
+    here they're translated to dp on a phone-sized popup (see dimens.xml:
+    walker_width, walker_min_height, walker_max_height) rather than
+    copied 1:1, since a 644px-wide window makes sense on a desktop monitor
+    but not on a phone screen.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/bg_omarchy_menu"
+    android:elevation="8dp"
+    android:padding="2dp">
+
+    <!-- Walker's own prompt is just "Launch..." (no extra title bar,
+         since walker IS the search box, not a screen with a header). -->
+    <EditText
+        android:id="@+id/walkerSearchInput"
+        style="@style/Widget.SearchBar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="10dp"
+        android:hint="@string/walker_launch_prompt"
+        android:singleLine="true"
+        android:imeOptions="actionGo"
+        android:inputType="text"
+        android:textSize="16sp"
+        android:background="@drawable/bg_search_bar" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/grid_line" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/walkerResultsRecycler"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/walker_max_height"
+        android:layout_marginTop="4dp"
+        android:paddingBottom="6dp"
+        android:clipToPadding="false" />
+
+    <TextView
+        android:id="@+id/walkerEmptyState"
+        style="@style/Text.Terminal.Dim"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/walker_max_height"
+        android:gravity="center"
+        android:text="@string/drawer_empty"
+        android:visibility="gone" />
+
+</LinearLayout>

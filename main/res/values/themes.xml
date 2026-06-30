@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="Theme.OmrLauncher" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/neon_cyan</item>
+        <item name="colorPrimaryVariant">@color/neon_cyan_dim</item>
+        <item name="colorSecondary">@color/neon_magenta</item>
+        <item name="colorSecondaryVariant">@color/neon_magenta_dim</item>
+        <item name="android:colorBackground">@color/bg_void</item>
+        <item name="colorSurface">@color/bg_panel</item>
+        <item name="colorOnBackground">@color/text_primary</item>
+        <item name="colorOnSurface">@color/text_primary</item>
+        <item name="android:textColorPrimary">@color/text_primary</item>
+        <item name="android:textColorSecondary">@color/text_secondary</item>
+        <item name="android:statusBarColor">@color/bg_void</item>
+        <item name="android:navigationBarColor">@color/bg_void</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">false</item>
+        <item name="fontFamily">monospace</item>
+        <item name="android:fontFamily">monospace</item>
+    </style>
+
+    <!-- Home screen: system status bar is hidden in code (HomeActivity
+         uses WindowInsetsController). Translucent here just lets
+         our own StatusLineView draw in that area as a terminal-style top bar. -->
+    <style name="Theme.OmrLauncher.Home" parent="Theme.OmrLauncher">
+        <item name="android:windowBackground">@color/bg_void</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowTranslucentNavigation">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:windowAnimationStyle">@style/WindowAnimation.OmrLauncher</item>
+    </style>
+
+    <style name="Theme.OmrLauncher.Transparent" parent="Theme.OmrLauncher">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+
+    <style name="WindowAnimation.OmrLauncher" parent="android:Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/fade_in_fast</item>
+        <item name="android:activityOpenExitAnimation">@anim/fade_out_fast</item>
+        <item name="android:activityCloseEnterAnimation">@anim/fade_in_fast</item>
+        <item name="android:activityCloseExitAnimation">@anim/fade_out_fast</item>
+    </style>
+
+    <!-- Base text style (parent for Text.Terminal) -->
+    <style name="Text" />
+
+    <!-- Terminal-style text -->
+    <style name="Text.Terminal">
+        <item name="fontFamily">monospace</item>
+        <item name="android:fontFamily">monospace</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <style name="Text.Terminal.Prompt" parent="Text.Terminal">
+        <item name="android:textColor">@color/neon_green</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Text.Terminal.Dim" parent="Text.Terminal">
+        <item name="android:textColor">@color/text_dim</item>
+        <item name="android:textSize">11sp</item>
+    </style>
+
+    <!-- App label under grid icons -->
+    <style name="Text.AppLabel" parent="Text.Terminal">
+        <item name="android:textSize">11sp</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:shadowColor">@color/bg_void</item>
+        <item name="android:shadowRadius">4</item>
+        <item name="android:shadowDy">1</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <style name="Widget.SearchBar" parent="Text.Terminal">
+        <item name="android:background">@drawable/bg_search_bar</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textColorHint">@color/text_dim</item>
+        <item name="android:paddingStart">14dp</item>
+        <item name="android:paddingEnd">14dp</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+</resources>
